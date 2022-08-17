@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>React *</title>
+</head>
+<body>
+    <div id="root"></div>
+    <h1>I have courses on these days:</h1>
+    <div id="date"></div>
+    <div id="handle"></div>
+    <div id="kitchen"></div>
+
+    <script type="text/babel">
+        let heading= React.createElement(
+            "h1",
+            null,
+            "Getting Started with React!"
+            );
+        ReactDOM.render(
+          heading,
+          document.getElementById("root")
+        );
+
+        let ul=React.createElement(
+            "ul",
+            {style:{color:"blue"}},
+            React.createElement("li",null,"Monday"),
+            React.createElement("li",null,"Tuesday"),
+            React.createElement("li",null,"Thursday")
+        );
+        ReactDOM.render(
+            ul,
+            document.getElementById("date")
+        );
+
+        let robot="&";
+        let cowboy="*";
+        let moon="@";
+        let name="react is a javascript library.";
+        ReactDOM.render(
+            <ul>
+                <li>{robot}</li>
+                <li>{cowboy}</li>
+                <li>{moon}</li>
+                <li>{name.toUpperCase()}</li>
+                <li>{name.length}</li>
+            </ul>,      
+            document.getElementById("handle")
+        );
+    
+        function Header(props){
+            return(
+                <header>
+                 <h1>{props.name}'s Kitchen</h1>    
+                </header>
+            );
+        } 
+        function Main(props){
+            return(
+                <section>
+                    <p>We serve the most {props.adjective} food around</p>
+                </section>
+            );
+        }
+        function Footer(props){
+            return(
+                <footer><p>&copy;{props.year}</p></footer>
+            )
+        }
+        function App(){
+            return(
+            <div>
+              <Header name="Lannie" />
+              <Main adjective="amazing" />
+              <Footer year={new Date().getFullYear()} />
+            </div>
+            );
+        }
+        ReactDOM.render(
+           <App />,
+            document.getElementById("kitchen")
+        );
+
+    </script>
+
+</body>
+</html>
