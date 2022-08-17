@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>working with list</title>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="list"></div>
+
+    <script type="text/babel">
+
+        //create a array in React
+        const dishes=[
+            "cream mushroom soup",
+            "smoked salmon salad",
+            "grilled steak",
+            "curry chicken"
+        ];
+
+        //create a new array with id for each dish, new element is object
+        const dishObj=dishes.map((dish,i)=>({
+            id:i,
+            title:dish
+        }));
+
+        function Header(props){
+            return(
+                <header>
+                 <h1>{props.name}'s Kitchen</h1>  
+                 <img height={250}
+                 src="https://images.pexels.com/photos/1508662/pexels-photo-1508662.jpeg?cs=srgb&dl=pexels-daria-shevtsova-1508662.jpg&fm=jpg" />
+                 <h3>Dishes I like in the kitchen ~</h3>  
+                </header>
+            );
+        } 
+        function Main(props){
+            return(
+                <div>
+                    <p>We serve the most {props.adjective} food around</p>
+                    <ul>
+                     {props.dishes.map((dish)=>(
+                    <li key={dish.id}>{dish.title}</li>))}
+                </ul>
+                </div>
+            );
+        }
+        function Footer(props){
+            return(
+                <footer><p>&copy;{props.year}</p></footer>
+            )
+        }
+        function App(){
+            return(
+            <div>
+              <Header name="Lannie" />
+              <Main adjective="amazing" 
+               dishes={dishObj}
+              />
+              <Footer year={new Date().getFullYear()} />
+            </div>
+            );
+        }
+        ReactDOM.render(
+           <App />,
+            document.getElementById("list")
+        );
+
+    </script>
+
+</body>
+</html>
