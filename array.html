@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>array</title>
+</head>
+<body>
+    <div id="array"></div>
+
+    <script type="text/babel">
+
+   //create a array in React
+   const cities=["Sydney","Melbourne","Canberra"];
+   const [first]=cities;
+   const [,second]=cities;
+   const [,,third]=cities;
+
+ function App() {
+  return (   
+    <div>
+      <h1>Hello from React- App.</h1>
+      <p>I am from {first}.</p>
+      <p>I am from {second}.</p>
+      <p>I am from {third}.</p>
+    </div>
+  );
+}
+    
+ReactDOM.render(
+     <App />,
+    document.getElementById("array")
+);
+
+    </script>
+    
+</body>
+</html>
