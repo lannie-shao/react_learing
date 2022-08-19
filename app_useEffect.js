@@ -1,11 +1,11 @@
 import './App.css';
-import {useState, useEffect} from 'react'
+import {useState, useEffect} from 'react';
 
 function App() {
   
 //use a hook
 const [emotion,setEmotion]=useState('happy');
-const [secondary, setSecondary]=useState('peaceful')
+const [secondary, setSecondary]=useState('peaceful');
 const [car,setCar]=useState({
   model:"Mustang ",
   brand:"Ford",
