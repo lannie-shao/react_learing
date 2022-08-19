@@ -3,7 +3,7 @@ import {useReducer} from 'react';
 
 
 function App() {
-  //useReducer instead of use State because we use logic function here
+  //useReducer instead of State because we use logic function here
   //to set the state
   const [checked,setChecked]=useReducer(checked=>!checked,false);
 
