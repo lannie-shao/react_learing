@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 
 function App() {
   
-//use a hook
+//use a Effect hook
 const [emotion,setEmotion]=useState('happy');
 const [secondary, setSecondary]=useState('peaceful');
 const [car,setCar]=useState({
